@@ -5,8 +5,8 @@ import CustomAlert from "../CustomAlert";
 function FileUpload() {
   const fileRef = useRef();
   const [file, setFile] = useState();
-  const [admins, setAdmins] = useState(null); // State for selected admin
-  const [admin, setAdmin] = useState(""); // State for selected admin
+  const [admins, setAdmins] = useState(null); 
+  const [admin, setAdmin] = useState(""); 
     const [notificationShown, setNotificationShown] = useState(false);
     const [notificationMessage, setNotificationMessage] = useState();
   
@@ -59,7 +59,7 @@ function FileUpload() {
           <h2 className="text-3xl font-bold mb-6 text-gray-800">Upload Your File</h2>
           <p className="text-gray-600 mb-4">Select a file to upload by clicking the button below.</p>
           
-          {/* File Input */}
+         
           <input 
             type="file" 
             ref={fileRef} 
@@ -68,7 +68,7 @@ function FileUpload() {
           />
           {file && <p className="mb-4">{file.name}</p>}
           
-          {/* Dropdown for selecting admin */}
+         
           <select 
             value={admin} 
             onChange={(e) => setAdmin(e.target.value)} 
@@ -82,7 +82,7 @@ function FileUpload() {
             ))}
           </select>
           
-          {/* Upload button */}
+         
           <button 
             onClick={file && admin ? uploadAssignment : () => fileRef.current.click()} 
             className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-full hover:from-pink-500 hover:to-purple-500 focus:ring-4 focus:ring-purple-300 transition-all duration-300"
