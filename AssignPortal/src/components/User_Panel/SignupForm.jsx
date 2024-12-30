@@ -11,7 +11,7 @@ const SignupForm = () => {
   const [notificationMessage, setNotificationMessage] = useState();
 
   const handleSubmit = async(e) => {
-    e
+    
     try {
       const url = "http://localhost:5000/api/users/register";
       const data = {
