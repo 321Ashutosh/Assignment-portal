@@ -2,11 +2,11 @@
 
 import axios from "axios";
 import  { useState } from "react";
-import { useNavigate } from "react-router-dom";  // Import useNavigate
+import { useNavigate } from "react-router-dom";  
 import CustomAlert from "../CustomAlert";
 
 const LoginForm = () => {
-  const navigate = useNavigate(); // Hook to navigate programmatically
+  const navigate = useNavigate(); 
  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [notificationShown, setNotificationShown] = useState(false);
@@ -24,7 +24,7 @@ const LoginForm = () => {
       const res = await axios.post(url,data);
       console.log(res);
       localStorage.setItem("user",JSON.stringify(res.data));
-      navigate("/admin-panel"); // Redirect to file upload page after login
+      navigate("/admin-panel"); 
       
     } catch (error) {
       if(error.response.data.message ==="Invalid credentials"){
@@ -41,14 +41,14 @@ const LoginForm = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-400">
-      {/* Login Form */}
+     
       {notificationShown && <CustomAlert message={notificationMessage} onClose={()=>setNotificationShown(false)}/>}
 
       <div className="bg-white p-16 rounded shadow-2xl w-2/3">
         <h2 className="text-3xl font-bold mb-10 text-gray-800">Login to Your Account - ADMIN</h2>
 
         <form className="space-y-5" onSubmit={handleSubmit}>
-          {/* User ID Field */}
+         
           <div>
             <label className="block mb-1 font-bold text-gray-500">User ID</label>
             <input
@@ -60,7 +60,7 @@ const LoginForm = () => {
             />
           </div>
 
-          {/* Password Field */}
+         
           <div>
             <label className="block mb-1 font-bold text-gray-500">Password</label>
             <input
@@ -72,7 +72,7 @@ const LoginForm = () => {
             />
           </div>
 
-          {/* Remember Me Checkbox */}
+        
           <div className="flex items-center">
             <input type="checkbox" id="remember" />
             <label htmlFor="remember" className="ml-2 text-gray-700 text-sm">
@@ -80,13 +80,9 @@ const LoginForm = () => {
             </label>
           </div>
 
-          {/* Submit Button */}
+         
           <button className="block w-full bg-yellow-400 hover:bg-yellow-300 p-4 rounded text-yellow-900 hover:text-yellow-800 transition duration-300">
-            Login
-          </button>
-        </form>
-
-        {/* Link to Sign Up */}
+            Log
         <p className="text-center mt-4 text-sm text-gray-700">
           Don't have an account?{" "}
           <button
