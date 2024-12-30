@@ -59,7 +59,7 @@ const ViewAssignment = () => {
     );
   };
 
-  return null; // Placeholder, assuming more implementation to follow
+  return null; 
 };
 
 export default ViewAssignment;
