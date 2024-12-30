@@ -1,6 +1,6 @@
 import axios from "axios";
 import  { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import CustomAlert from "../CustomAlert";
 
 const LoginForm = () => {
@@ -8,7 +8,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [notificationShown, setNotificationShown] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState();
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ const LoginForm = () => {
       const res = await axios.post(url,data);
       console.log(res.data);
       localStorage.setItem("user",JSON.stringify(res.data));
-      navigate("/file-upload"); // Redirect to file upload page after login
+      navigate("/file-upload"); 
       
     } catch (error) {
       if(error.response.data.message ==="Invalid credentials"){
@@ -39,18 +39,18 @@ const LoginForm = () => {
     <div className="min-h-screen flex items-center justify-center bg-blue-400">
       {notificationShown && <CustomAlert message={notificationMessage} onClose={()=>setNotificationShown(false)}/>}
 
-      {/* Login Form */}
+
       <div className="bg-white p-16 rounded shadow-2xl w-2/3">
         <h2 className="text-3xl font-bold mb-10 text-gray-800">Login to Your Account - USER</h2>
 
         <form className="space-y-5" onSubmit={handleSubmit}>
-          {/* Username Field */}
+          
           <div>
             <label className="block mb-1 font-bold text-gray-500">Username</label>
             <input
               type="text"
-              autoComplete="off"  // Disable browser autocomplete (text prediction)
-              spellCheck="false"  // Disable spellcheck
+              autoComplete="off"  
+              spellCheck="false" 
               placeholder="Enter your username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -58,13 +58,13 @@ const LoginForm = () => {
             />
           </div>
 
-          {/* Password Field */}
+         
           <div>
             <label className="block mb-1 font-bold text-gray-500">Password</label>
             <input
               type="password"
-              autoComplete="off"  // Disable browser autocomplete (text prediction)
-              spellCheck="false"  // Disable spellcheck
+              autoComplete="off"  
+              spellCheck="false"  
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -72,7 +72,7 @@ const LoginForm = () => {
             />
           </div>
 
-          {/* Remember Me Checkbox */}
+          
           <div className="flex items-center">
             <input type="checkbox" id="remember" />
             <label htmlFor="remember" className="ml-2 text-gray-700 text-sm">
@@ -80,7 +80,7 @@ const LoginForm = () => {
             </label>
           </div>
 
-          {/* Submit Button */}
+          
           <button
             type="submit"
             className="block w-full bg-yellow-400 hover:bg-yellow-300 p-4 rounded text-yellow-900 hover:text-yellow-800 transition duration-300"
@@ -89,7 +89,7 @@ const LoginForm = () => {
           </button>
         </form>
 
-        {/* Link to Sign Up */}
+      
         <p className="text-center mt-4 text-sm text-gray-700">
           Don't have an account?{" "}
           <button
