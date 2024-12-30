@@ -51,7 +51,7 @@ const rejectAssignment = async (id)=>{
   }
 }
 const openFileInNewTab = (url) => {
-  // Check if a tab is already open with the URL (simple check for this example)
+  
   const newTab = window.open("http://localhost:5000/"+url, '_blank');
   if (!newTab) {
     console.error('Failed to open new tab');
